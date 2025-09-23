@@ -1,3 +1,5 @@
+Gestion des Comptes Bancaires et Transactions
+
 Une banque marocaine souhaite digitaliser la gestion des comptes et des transactions de ses clients. L’objectif est de fournir aux clients et aux gestionnaires un outil simple, fiable et sécurisé pour gérer les comptes bancaires (courant, épargne, dépôt à terme) et suivre toutes les transactions (dépôts, retraits, virements), tout en assurant un suivi précis et des statistiques détaillées.
 
 Vous êtes chargé de concevoir et développer une application console Java permettant de simuler la gestion des comptes bancaires et des transactions, en respectant les règles de gestion et les bonnes pratiques de programmation orientée objet, tout en exploitant les collections, l’API Java Time, les Streams .
@@ -126,17 +128,17 @@ Durée totale
 2.	Présentation technique (5 min) : exploration du code et de l’architecture (MVC, Collections, Exceptions).
 3.	Questions / Réponses sur Java 8 (10 min).
 4.	Mise en situation pratique (10 min) : ajout d’un scénario (nouvelle transaction, nouveau client…).
-Livrables
-•	Dépôt GitHub contenant :
+      Livrables
+      •	Dépôt GitHub contenant :
 -	Le code source complet sur un dépôt Git.
 -	Le fichier JAR exécutable de l’application.
 -	Le diagramme de classe UML (.puml).
 -  Le fichier README.md avec description du projet, instructions d’installation et d’utilisation.
-Critères de performance
-•	L’application doit être développée en Java 8.
-•	L’application doit être fonctionnelle et couvrir toutes les fonctionnalités de base.
-•	L’architecture en couches (MVC) doit être respectée.
-•	Le code doit être propre, bien commenté, lisible et suivre les conventions Java (CamelCase).
-•	L’utilisation de Git doit montrer une progression logique avec des commits réguliers et bien décrits.
-•	Le fichier README.md doit être clair et complet (description, installation, usage).
-•	Le diagramme UML doit refléter fidèlement la structure de l’application.
+   Critères de performance
+   •	L’application doit être développée en Java 8.
+   •	L’application doit être fonctionnelle et couvrir toutes les fonctionnalités de base.
+   •	L’architecture en couches (MVC) doit être respectée.
+   •	Le code doit être propre, bien commenté, lisible et suivre les conventions Java (CamelCase).
+   •	L’utilisation de Git doit montrer une progression logique avec des commits réguliers et bien décrits.
+   •	Le fichier README.md doit être clair et complet (description, installation, usage).
+   •	Le diagramme UML doit refléter fidèlement la structure de l’application.
