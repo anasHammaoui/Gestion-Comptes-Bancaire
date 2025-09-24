@@ -53,6 +53,14 @@ public abstract class Person {
         this.nom = nom;
     }
 
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
     public Role getRole() {
         return role;
     }
