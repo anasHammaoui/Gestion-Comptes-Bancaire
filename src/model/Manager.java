@@ -17,5 +17,30 @@ public class Manager extends Person{
         clients.add(client);
     }
 
-    public ArrayList<Client> getClients(){return this.clients;}
+    public void removeClient(Client client) {
+        clients.remove(client);
+    }
+
+    public ArrayList<Client> getClients() {
+        return this.clients;
+    }
+
+    public Departement getDepartement() {
+        return departement;
+    }
+
+    public void setDepartement(Departement departement) {
+        this.departement = departement;
+    }
+
+    @Override
+    public String toString() {
+        return "Manager{" +
+                "nom='" + getNom() + '\'' +
+                ", prenom='" + getPrenom() + '\'' +
+                ", email='" + getEmail() + '\'' +
+                ", departement=" + departement +
+                ", nombreClients=" + clients.size() +
+                '}';
+    }
 }

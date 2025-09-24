@@ -19,6 +19,8 @@ public class Account {
         this.transactions = new ArrayList<>();
     }
 
+    public UUID getId(){return this.id;}
+
     public AccountType getType() {
         return type;
     }
@@ -43,11 +45,26 @@ public class Account {
         this.transactions = transactions;
     }
 
+    public void addTransaction(Transaction transaction) {
+        this.transactions.add(transaction);
+    }
+
     public Client getClient() {
         return client;
     }
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", type=" + type +
+                ", sold=" + sold +
+                ", transactions=" + transactions +
+                ", client=" + client +
+                '}';
     }
 }
