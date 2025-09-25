@@ -8,9 +8,10 @@ import java.util.ArrayList;
 public class Manager extends Person{
     ArrayList<Client> clients;
     Departement departement;
-    public Manager(String nom, String prenom, String email, String motDePasse, Role role){
+    public Manager(String nom, String prenom, String email, String motDePasse, Role role,Departement departement){
         super(nom, prenom, email, motDePasse, role);
         this.clients = new ArrayList<>();
+        this.departement = departement;
     }
 
     public void addClient(Client client){

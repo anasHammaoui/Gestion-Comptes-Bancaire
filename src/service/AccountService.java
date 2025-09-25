@@ -75,7 +75,7 @@ public class AccountService {
             throw new SecurityException("Access denied, You need manager permissions.");
         }
         if (accountId == null) {
-            throw new IllegalArgumentException("Account ID required");
+            throw new IllegalArgumentException("Account ID requir ed");
         }
         if (clientId == null) {
             throw new IllegalArgumentException("Account ID required");
