@@ -9,7 +9,6 @@ import enums.Role;
 
 public class Utils {
 
-
     public static boolean isEmailInUse(List<Person> users, String email) {
         return users.stream()
                 .anyMatch(user -> user.getEmail().equals(email));

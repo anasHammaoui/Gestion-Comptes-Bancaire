@@ -21,4 +21,8 @@ public class ClientService {
                 .findFirst()
                 .orElseThrow(() -> new NoSuchElementException("Client not found with ID: " + id));
     }
+
+    public void addClient(Client client) {
+        clients.add(client);
+    }
 }
