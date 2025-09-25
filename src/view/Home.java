@@ -1,9 +1,13 @@
 package view;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 import controller.AuthController;
 import enums.Departement;
+import model.Client;
+import model.Manager;
+import model.Person;
 
 public class Home {
     private AuthController authController;
@@ -33,13 +37,11 @@ public class Home {
         System.out.println("Choose your role:");
         System.out.println("1. MANAGER");
         System.out.println("2. CLIENT");
-        String role;
         int roleChoice = input.nextInt();
         input.nextLine();
         
         switch(roleChoice) {
             case 1:
-                role = "MANAGER";
                 System.out.println("Choose department:");
                 System.out.println("1. IT");
                 System.out.println("2. MARKETING");
@@ -59,16 +61,17 @@ public class Home {
                         return;
                 }
                     try {
-                        authController.registerManager(firstName, lastName, email, password, department);
+                       Manager manager =  authController.registerManager(firstName, lastName, email, password, department);
+                    System.out.println("******Welcome " + manager.getNom()+"*******");
                     } catch (IllegalArgumentException e){
                          System.out.println(e.getMessage());
                     }
                 break;
                 
             case 2:
-                role = "CLIENT";
                 try {
-                    authController.registerClient(firstName, lastName, email, password);
+                   Client client =  authController.registerClient(firstName, lastName, email, password);
+                    System.out.println("******Welcome " +  client.getPrenom() + " " + client.getNom() +"*******");
                  } catch(IllegalArgumentException e){
                    System.out.println(e.getMessage());
                  }
@@ -80,17 +83,17 @@ public class Home {
         }
     }
 
-    // public void loginMenu(Scanner input){
-    //     System.out.println("*****Login Menu******");
-    //     System.out.print("Enter your Email:");
-    //     String email = input.nextLine();
-    //     System.out.print("Enter your password: ");
-    //     String password = input.nextLine();
-    //     String message = auth.login(email,password);
-    //     if (message.equals("done")){
-    //         this.authenticatedMenu(input);
-    //     } else  {
-    //        System.err.println(message);
-    //     }
-    // }
+    public void loginMenu(Scanner input){
+        System.out.println("*****Login Menu******");
+        System.out.print("Enter your Email:");
+        String email = input.nextLine();
+        System.out.print("Enter your password: ");
+        String password = input.nextLine();
+        Optional<Person> user = authController.login(email, password);
+        if (user.isPresent()){
+            System.out.println("*******Welcome "+ user.get().getPrenom() + " " +user.get().getNom() +"*******");
+        } else {
+            System.out.println("Please check your credential and try again");
+        }
+    }
 }
