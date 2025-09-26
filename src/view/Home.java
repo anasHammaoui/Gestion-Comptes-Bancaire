@@ -11,8 +11,12 @@ import model.Person;
 
 public class Home {
     private AuthController authController;
-    public Home(AuthController auth){
+    private ManagerMenu managerMenu;
+    private ClientMenu clientMenu;
+    public Home(AuthController auth, ManagerMenu managerMenu, ClientMenu clientMenu ){
         this.authController = auth;
+        this.managerMenu =managerMenu ;
+        this.clientMenu = clientMenu;
     }
 
     public String guestMenu(){
@@ -75,92 +79,16 @@ public class Home {
             
             if (loggedInUser instanceof Manager) {
                 Manager manager = (Manager) loggedInUser;
-                showManagerMenu(manager, input);
+                managerMenu.showManagerMenu(manager, input);
             } else if (loggedInUser instanceof Client) {
                 Client client = (Client) loggedInUser;
-                showClientMenu(client, input);
+                clientMenu.showClientMenu(client, input);
             }
         } else {
             System.out.println("Please check your credentials and try again");
         }
     }
 
-    public void showManagerMenu(Manager manager, Scanner input) {
-        boolean running = true;
-        while (running) {
-            System.out.println("*******MANAGER DASHBOARD*******");
-            System.out.println("1) Create Client Account");
-            System.out.println("2) View Profile");
-            System.out.println("0) Logout");
-            System.out.print("Choose an option: ");
-            int choice = input.nextInt();
-            input.nextLine();
 
-            switch (choice) {
-                case 1:
-                    createClientAccount(input);
-                    break;
-                case 2:
-                    System.out.println(manager);
-                    break;
-                case 0:
-                    running = false;
-                    System.out.println("Logging out...");
-                    break;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-                    break;
-            }
-        }
-    }
 
-    public void showClientMenu(Client client, Scanner input) {
-        boolean running = true;
-        while (running) {
-            System.out.println("*******CLIENT DASHBOARD*******");
-            System.out.println("1) View Profile");
-            System.out.println("2) Transactions History");
-            System.out.println("0) Logout");
-            System.out.print("Choose an option: ");
-            int choice = input.nextInt();
-            input.nextLine();
-
-            switch (choice) {
-                case 1:
-                    System.out.println(client);
-                    break;
-                case 2:
-                    System.out.println("Transactions features coming soon...");
-                    break;
-                case 0:
-                    running = false;
-                    System.out.println("Logging out...");
-                    break;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-                    break;
-            }
-        }
-    }
-
-    private void createClientAccount(Scanner input) {
-        System.out.println("*******CREATE CLIENT ACCOUNT*******");
-        System.out.print("Enter client's first name: ");
-        String firstName = input.nextLine();
-        System.out.print("Enter client's last name: ");
-        String lastName = input.nextLine();
-        System.out.print("Enter client's email: ");
-        String email = input.nextLine();
-        System.out.print("Enter client's password: ");
-        String password = input.nextLine();
-
-        try {
-            Client newClient = authController.registerClient(firstName, lastName, email, password);
-            System.out.println("******Client account created******");
-            System.out.println("Client: " + newClient.getPrenom() + " " + newClient.getNom());
-            System.out.println("Email: " + newClient.getEmail());
-        } catch (IllegalArgumentException e) {
-            System.out.println("ERROR: " + e.getMessage());
-        }
-    }
 }
