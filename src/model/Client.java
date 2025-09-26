@@ -31,12 +31,9 @@ public class Client extends Person {
 
     @Override
     public String toString() {
-        return "Client{" +
-                "nom='" + getNom() + '\'' +
-                ", prenom='" + getPrenom() + '\'' +
-                ", email='" + getEmail() + '\'' +
-                ", AccountsSize=" + accounts.size() +
-                ", totalSold=" + getTotalBalance() +
-                '}';
+        return "nom='" + getNom() + '\n' +
+                ", prenom='" + getPrenom() + '\n' +
+                ", email='" + getEmail() + '\n' +
+                ", totalSold=" + getTotalBalance() + '\n';
     }
 }
