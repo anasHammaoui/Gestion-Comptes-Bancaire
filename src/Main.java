@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
 import controller.AuthController;
+import controller.ManagerController;
+import service.AccountService;
 import service.AuthService;
 import service.ClientService;
 import view.ClientMenu;
@@ -13,9 +15,11 @@ public class Main {
         Scanner input = new Scanner(System.in);
         AuthService authService = new AuthService();
         ClientService clientService = new ClientService();
+        AccountService accountService = new AccountService(clientService);
         AuthController authController = new AuthController(authService, clientService);
-        ClientMenu clientMenu = new ClientMenu(authController);
-        ManagerMenu managerMenu = new ManagerMenu(authController);
+        ManagerController managerController = new ManagerController(accountService, clientService);
+        ClientMenu clientMenu = new ClientMenu();
+        ManagerMenu managerMenu = new ManagerMenu(authController, managerController);
         Home menu = new Home(authController, managerMenu, clientMenu);
         int choice;
         while(true){

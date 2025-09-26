@@ -19,17 +19,32 @@ public class AuthController {
     }
   
      public Optional<Person> login(String email, String password) {
-        return authService.login(email, password);
+        try {
+            return authService.login(email, password);
+        } catch (Exception e) {
+            System.err.println("ERROR: " + e.getMessage());
+            return Optional.empty();
+        }
     }
     
         public Client registerClient(String firstName, String lastName, String email, String password) {
-        Client client = authService.registerClient(firstName, lastName, email, password);
-        clientService.addClient(client);
-        return client;
+        try {
+            Client client = authService.registerClient(firstName, lastName, email, password);
+            clientService.addClient(client);
+            return client;
+        } catch (Exception e) {
+            System.err.println("ERROR: " + e.getMessage());
+            return null;
+        }
     }
 
         public Manager registerManager(String firstName, String lastName, String email, String password, Departement departmentType) {
-        return authService.registerManager(firstName, lastName, email, password, departmentType);
+        try {
+            return authService.registerManager(firstName, lastName, email, password, departmentType);
+        } catch (Exception e) {
+            System.err.println("ERROR: " + e.getMessage());
+            return null;
+        }
     }
 }
 

@@ -6,10 +6,6 @@ import controller.AuthController;
 import model.Client;
 
 public class ClientMenu {
-        private AuthController authController;
-    public ClientMenu(AuthController authController){
-        this.authController = authController;
-    }
     public void showClientMenu(Client client, Scanner input) {
         boolean running = true;
         while (running) {

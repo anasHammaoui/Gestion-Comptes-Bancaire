@@ -25,4 +25,8 @@ public class ClientService {
     public void addClient(Client client) {
         clients.add(client);
     }
+
+    public List<Client> getAllClients() {
+        return new ArrayList<>(clients);
+    }
 }

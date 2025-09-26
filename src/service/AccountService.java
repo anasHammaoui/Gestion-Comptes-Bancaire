@@ -28,7 +28,7 @@ public class AccountService {
     public Account findAccountById(UUID id) {
         return accounts
                 .stream()
-                .filter(account -> account.getId() ==id)
+                .filter(account -> account.getId().equals(id))
                 .findFirst()
                 .orElseThrow(() -> new NoSuchElementException("No Account Found with ID:" + id));
     }

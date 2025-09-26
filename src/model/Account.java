@@ -13,6 +13,7 @@ public class Account {
     private Client client;
 
     public Account(AccountType type, double sold, Client client) {
+        this.id = UUID.randomUUID();
         this.type = type;
         this.sold = sold;
         this.client = client;

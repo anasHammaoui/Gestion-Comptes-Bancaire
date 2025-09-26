@@ -58,12 +58,11 @@ public class Home {
                 return;
         }
         
-        try {
-            Manager manager = authController.registerManager(firstName, lastName, email, password, department);
+        Manager manager = authController.registerManager(firstName, lastName, email, password, department);
+        if (manager != null) {
             System.out.println("******Welcome Manager " + manager.getPrenom() + " " + manager.getNom() + "*******");
-        } catch (IllegalArgumentException e){
-            System.out.println("Registration Error: " + e.getMessage());
         }
+        // Error message already printed by controller if registration failed
     }
 
     public void loginMenu(Scanner input){
